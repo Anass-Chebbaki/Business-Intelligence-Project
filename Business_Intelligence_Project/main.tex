@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.1.1 (14/2/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn, openany]{book} % Default font size and left-justified equations
+% \usepackage{verbatim}
+\usepackage{listings}
+
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{background1.pdf}}; % Background image
+\draw[anchor=north] (midpoint) node [fill=myWhite!30!white,fill opacity=0.95,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}%{\centering\textnormal{\LARGE Tesina di:} \\[2pt] Business Intelligence\\[15pt] % Book title
+{\centering\textnormal \\Business Intelligence\\[15pt] % Book title
+{\Large Analisi dei dati relativi al cambiamento climatico:}\\[20pt] % Subtitle
+{\textnormal{\Large Anass Chebbaki\\Caterina Sabatini\\Matteo Stronati\\}}}}; % Author name
+\end{tikzpicture}};
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	RETROCOPERTINA
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\begin{center}
+{\LARGE \bf \scshape Universit\`a Politecnica delle Marche}\\
+\vspace{0.2cm}
+{\Large \bf \scshape Facolt\`a di Ingegneria}\\
+\vspace{0.2cm}
+{\Large Dipartimento di Ingegneria dell'Informazione}\\
+\vspace{0.2cm}
+{\large Corso di Laurea Magistrale in Ingegneria Informatica e dell'Automazione}\\
+
+\rule{150mm}{.2mm}
+
+
+\vspace{5mm}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=3cm]{logo.png}
+\end{figure}
+
+\vspace{5mm}
+
+\textbf{\color{black} \large \scshape Tesina di:}
+
+\vspace{2mm}
+
+\color{Green}\LARGE{\bf Business Intelligence}\color{black}
+%accentColor
+\vspace{4mm}
+
+\large{Esame per il corso tenuto dal Prof. Domenico Ursino, durante l'anno accademico 2024-2025}
+
+\vspace{4mm}
+
+\large{9 CFU}
+
+\vfill
+
+\end{center} 	
+\vspace{20mm} 	
+\begin{center}
+\flushleft{\small
+% \emph{Questo documento è frutto di un'attenta sintesi tra materiale didattico fornito dal docente, spunti da lezioni e ulteriori approfondimenti. Il documento mira a offrire un quadro completo e dettagliato del corso, cercando di non tralasciare - salvo casi particolari - alcun dettaglio.}
+
+\begin{dbBox}\small
+Redazione del documento a cura di:
+\begin{itemize}
+    \item \textbf{\color{black}Chebbaki Anass} (Matr. 1124883) - \href{mailto:S1124883@studenti.univpm.it} {s1124883@studenti.univpm.it} 
+    \item \textbf{\color{black}Sabatini Caterina} (Matr. 1121684) - \href{mailto:s1121684@studenti.univpm.it}{s1121684@studenti.univpm.it}
+    \item \textbf{\color{black}Stronati Matteo} (Matr. 1122745) - \href{mailto:S1122745@studenti.univpm.it} {s1122745@studenti.univpm.it} 
+\end{itemize}
+\end{dbBox}\normalsize}
+
+\centering
+
+
+\rule{150mm}{.2mm}
+
+\textbf{\color{black}\scshape Anno Accademico 2024-2025}\\
+\textit{\scshape Anno I}
+\end{center} 	
+
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{tabl_cont3.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+% \cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+%\part{Analisi del Dataset}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+\include{capitolo_1/cap1}
+%----------------------------------------------------------------------------------------
+
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+\include{capitolo_2/cap2}
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+\include{capitolo_3/cap3}
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+\include{capitolo_4/cap4}
+%----------------------------------------------------------------------------------------
+
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+ %\chapter*{Bibliography}
+ %\addcontentsline{toc}{chapter}{\textcolor{Green}{Bibliography}}
+ %\section*{Books}
+ %\addcontentsline{toc}{section}{Books}
+ %\printbibliography[heading=bibempty,type=book]
+ %\section*{Articles}
+ %\addcontentsline{toc}{section}{Articles}
+ %\printbibliography[heading=bibempty,type=article]
+
+% %----------------------------------------------------------------------------------------
+% %	INDEX
+% %----------------------------------------------------------------------------------------
+
+% \cleardoublepage
+% \phantomsection
+% \setlength{\columnsep}{0.75cm}
+% \addcontentsline{toc}{chapter}{\textcolor{Green}{Index}}
+% \printindex
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

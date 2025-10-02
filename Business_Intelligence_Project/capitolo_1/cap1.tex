@@ -1,0 +1,88 @@
+\chapterimage{tabl_cont3.pdf} % Chapter heading image
+
+\chapter{Introduzione}
+Negli ultimi decenni, il cambiamento climatico è diventato uno dei temi centrali del dibattito scientifico e politico a livello globale. L'aumento delle temperature medie terrestri, il verificarsi di eventi meteorologici estremi e lo scioglimento dei ghiacciai rappresentano segnali inequivocabili di un fenomeno in continua evoluzione. Tra le principali cause di questo cambiamento, l'attività umana riveste un ruolo determinante, in particolare attraverso le emissioni di gas serra, come l'anidride carbonica (CO\textsubscript{2}), derivanti dalla produzione e dal consumo di energia.
+
+Per condurre un'analisi approfondita su questo argomento, sono stati esaminati due dataset distinti: \textbf{FAOSTAT Temperature Change} e \textbf{Global Data on Sustainable Energy (2000-2020)}. Tali fonti di dati consentono di esplorare le dinamiche del cambiamento climatico e della transizione energetica, offrendo una visione complessiva e dettagliata delle tendenze globali nel corso del tempo.
+
+\section{FAOSTAT Temperature Change}
+Il primo dataset preso in considerazione per le analisi è stato \textbf{FAOSTAT Temperature Change}, il quale fornisce statistiche sulla variazione della temperatura superficiale media a livello nazionale, con aggiornamenti annuali. I dati coprono il periodo compreso tra il 1961 e il 2023 e riportano le anomalie della temperatura media mensile, stagionale e annuale, calcolate rispetto a una climatologia di riferimento corrispondente al periodo 1951-1980.
+
+Le informazioni contenute nel dataset si basano sui dati \textit{GISTEMP}\footnote{I dati \textit{GISTEMP} (\textit{GISS Surface Temperature Analysis}) sono un set di dati sulla temperatura superficiale globale, sviluppato e mantenuto dalla NASA \textit{Goddard Institute for Space Studies} (\textit{GISS}). Questo dataset misura le anomalie della temperatura terrestre e oceanica, fornendo una panoramica dell'andamento del riscaldamento globale nel tempo.}, distribuiti pubblicamente dalla \textit{NASA-GISS} (\textit{National Aeronautics and Space Administration Goddard Institute for Space Studies}), e includono anche la deviazione standard della variazione di temperatura secondo la metodologia di base adottata. Tutte le variazioni di temperatura, presenti nei file \texttt{.csv}, sono calcolate su scala mensile, stagionale e annuale rispetto alla climatologia base del 1951-1980.
+
+Dal punto di vista statistico, il dominio del cambiamento di temperatura segue le linee guida del \textit{Framework for the Development of Environmental Statistics} (\textit{FDES 2013}), contribuendo a fornire indicatori ambientali affidabili. L'unità statistica del dataset è costituita dai Paesi e Territori di tutto il mondo, con una copertura di 190 nazioni e 37 entità territoriali, secondo la classificazione \textit{FAOSTAT}\footnote{Il \textit{FAOSTAT} è un sistema di raccolta e diffusione dei dati statistici della \textit{Food and Agriculture Organization} (\textit{FAO}) delle Nazioni Unite. Fornisce un'ampia gamma di informazioni su agricoltura, alimentazione, risorse naturali e ambiente, coprendo oltre 245 paesi e territori, con serie temporali che spesso risalgono a diversi decenni.} e il livello amministrativo globale \textit{GAUL} della \textit{FAO}.
+
+Il dataset offre un'importante risorsa per analisi climatiche dettagliate, consentendo lo studio delle variazioni di temperatura su scale temporali e geografiche diverse, contribuendo alla comprensione dei cambiamenti climatici a livello globale.
+\newpage
+Il dataset è composto da 4 file \texttt{.csv}:
+\vspace{2mm}
+
+\begin{itemize}
+    \item\texttt{Environment\_Temperature\_Change\_E\_All\_Data\_NOFLAG.csv}: specifica i dati annuali sulle variazioni della temperatura superficiale media per paese dal 1961 al 2019.
+    \item \texttt{FAOSTAT\_data\_1-10-2022.csv}: contiene i dati annuali sulle variazioni della temperatura superficiale media globale per paese, coprendo il periodo 1961-2020.
+    \item \texttt{FAOSTAT\_data\_11-24-2020.csv}: contiene le definizioni e gli standard utilizzati in FAOSTAT.
+    \item \texttt{FAOSTAT\_data\_11-1-2024.csv}: contiene i dati annuali sulle variazioni della temperatura superficiale media globale per paese, coprendo il periodo 1961-2023.
+\end{itemize}
+\vspace{2mm}
+ Per le analisi presentate di seguito, è stato utilizzato esclusivamente il file \texttt{FAOSTAT\_data\_1-10-2022.csv}. Questa scelta metodologica è stata motivata dalla necessità di disporre di un dataset aggiornato, che raccoglie i dati più recenti fino all'anno 2020, analogamente al secondo dataset considerato. Tuttavia, il file selezionato è stato preferito in quanto offre misurazioni più precise e complete, garantendo una maggiore affidabilità nell'elaborazione statistica e nell'interpretazione dei risultati. Tale accuratezza ha consentito di condurre un'analisi approfondita e rigorosa, in linea con gli obiettivi dello studio.
+
+ Nell'elenco \ref{elenco_dati1}, sono riportati i principali campi presenti file preso in esame:
+\vspace{2mm}
+\begin{enumerate}
+\label{elenco_dati1}
+    \item \texttt{Domain Code}: codice numerico che identifica il dominio di dati (es. agricoltura, emissioni, ecc.).
+    \item \texttt{Domain}: nome del dominio dei dati.
+    \item \texttt{Area Code (FAO)}: codice numerico assegnato dalla FAO ai paesi o regioni.
+    \item \texttt{Area}: nome del paese o regione a cui si riferiscono i dati.
+    \item \texttt{Element Code}: codice numerico che identifica la variabile misurata.
+    \item \texttt{Element}: nome della variabile misurata.
+    \item \texttt{Months Code}: codice numerico del mese (se applicabile).
+    \item \texttt{Months}: nome del mese (se applicabile, altrimenti vuoto).
+    \item \texttt{Year Code}: codice numerico dell'anno.
+    \item \texttt{Year}: anno a cui si riferiscono i dati.
+    \item \texttt{Unit}: unità di misura dei dati.
+    \item \texttt{Value}: il valore effettivo della misura registrata.
+    \item \texttt{Flag}: codice che indica una nota o una condizione particolare sui dati.
+    \item \texttt{Flag Description}: descrizione testuale della nota.
+\end{enumerate}
+
+
+
+\section{Global Data on Sustainable Energy (2000-2020)}
+
+Il dataset intitolato \textbf{Global Data on Sustainable Energy (2000-2020)}, rilasciato dall'autore Ansh Tanwar, fornisce una panoramica esaustiva e rigorosa degli indicatori energetici sostenibili su scala mondiale, coprendo un arco temporale di due decenni. Questa risorsa di elevato valore scientifico consente di analizzare in modo approfondito l'evoluzione dell'accesso all'elettricità, l'impiego delle energie rinnovabili, le emissioni di carbonio, l'intensità energetica, i flussi finanziari e la crescita economica di ciascun paese nel periodo compreso tra il 2000 e il 2020.
+
+Attraverso un approccio comparativo, il dataset facilita il monitoraggio accurato dei progressi compiuti verso il conseguimento dell'\textit{Obiettivo di Sviluppo Sostenibile 7} (\textit{SDG 7}), il quale mira a garantire l'accesso universale a un'energia affidabile, sostenibile e moderna, a un costo economicamente sostenibile. L'analisi di tali dati consente non soltanto di individuare le tendenze globali e regionali, ma anche di identificare le aree in cui è necessario un impegno rafforzato per accelerare la transizione energetica.
+
+Inoltre, il dataset rappresenta una solida base empirica per la costruzione di modelli predittivi, valutazioni di impatto ambientale e studi economici, rivelandosi pertanto uno strumento imprescindibile per ricercatori e professionisti operanti nel settore energetico.
+
+Grazie alla sua ampiezza e profondità, questa raccolta di dati costituisce un'opportunità per approfondire la comprensione delle dinamiche energetiche globali e contribuire attivamente alla costruzione di un futuro più sostenibile e resiliente.
+
+Il dataset è composto da un unico file denominato \texttt{global-data-on-sustainable-energy.csv}. Di seguito, nell'elenco \ref{elenco_dati2}, sono riportati i principali campi presenti all'interno del file:
+\vspace{2mm}
+\begin{enumerate}
+\label{elenco_dati2}
+    \item \texttt{Entity}: nome del paese o della regione per cui i dati sono riportati.
+    \item \texttt{Year}: anno di riferimento dei dati, compreso tra il 2000 e il 2020.
+    \item \texttt{Access to electricity (\% of population)}: percentuale della popolazione con accesso all'elettricità.
+    \item \texttt{Access to clean fuels for cooking (\% of population)}: percentuale della popolazione che fa affidamento principalmente su combustibili puliti per cucinare.
+    \item \texttt{Renewable-electricity-generating-capacity-per-capita}: capacità installata di energia rinnovabile per persona.
+    \item \texttt{Financial flows to developing countries (US \$)}: flussi finanziari verso i paesi in via di sviluppo, sotto forma di aiuti e assistenza per progetti di energia pulita.
+    \item \texttt{Renewable energy share in total final energy consumption (\%)}: percentuale di energia rinnovabile sul consumo finale totale di energia.
+    \item \texttt{Electricity from fossil fuels (TWh)}: elettricità generata da combustibili fossili (carbone, petrolio, gas) espressa in terawattora.
+    \item \texttt{Electricity from nuclear (TWh)}: elettricità prodotta da energia nucleare, in terawattora.
+    \item \texttt{Electricity from renewables (TWh)}: elettricità generata da fonti rinnovabili (idroelettrica, solare, eolica, ecc.) in terawattora.
+    \item \texttt{Low-carbon electricity (\% electricity)}: percentuale di elettricità prodotta da fonti a basse emissioni di carbonio (nucleare e rinnovabili).
+    \item \texttt{Primary energy consumption per capita (kWh/person)}: consumo di energia primaria per persona, espresso in kilowattora.
+    \item \texttt{Energy intensity level of primary energy (MJ/\$2011 PPP GDP)}: livello di intensità energetica dell'energia primaria, misurato in megajoule per unità di PIL a parità di potere d'acquisto (PPP) del 2011.
+    \item \texttt{Value\_co2\_emissions (metric tons per capita)}: emissioni di anidride carbonica per persona, espresse in tonnellate metriche.
+    \item \texttt{Renewables (\% equivalent primary energy)}: percentuale dell'energia primaria equivalente derivante da fonti rinnovabili.
+    \item \texttt{GDP growth (annual \%)}: tasso di crescita annuale del GDP, basato sulla valuta locale costante.
+    \item \texttt{GDP per capita}: prodotto interno lordo per persona.
+    \item \texttt{Density (P/Km2)}: densità di popolazione, espressa in persone per chilometro quadrato.
+    \item \texttt{Land Area (Km2)}: superficie totale del territorio, espressa in chilometri quadrati.
+    \item \texttt{Latitude}: latitudine del centroide del paese, in gradi decimali.
+    \item \texttt{Longitude}: longitudine del centroide del paese, in gradi decimali.
+\end{enumerate}
+
+%PREPPROCESSING DEL DATASET?
