@@ -20,35 +20,41 @@ The goal of the project is to turn public environmental and economic data into c
 | FAOSTAT Temperature Change | FAO, based on NASA-GISS GISTEMP | 1961 to 2020 | Mean surface temperature anomalies relative to the 1951 to 1980 baseline, for roughly 190 countries and 37 territories |
 | Global Data on Sustainable Energy | Kaggle (Ansh Tanwar) | 2000 to 2020 | UN SDG 7 indicators: electricity access, renewable capacity, energy by source, CO2 per capita, energy intensity, GDP and GDP per capita, land area, and more |
 
-A complementary FAOSTAT country-code file is also used in Power BI as a bridge table to resolve country relationships across sources.
+A complementary FAOSTAT country-code file (M49, ISO2, ISO3 codes) is also used in Power BI as a bridge table to resolve country relationships across sources.
 
 ## Tools and Tech Stack
 
 - **Qlik Sense** for associative data exploration and geospatial visualization.
 - **Tableau** for relationship-based modeling, dashboards, and built-in time-series forecasting.
-- **Power BI** for a relational data model, DAX calculated columns, and interactive reporting.
-- **LaTeX** (Legrand Orange Book template) for the written report, with `biber` for the bibliography and `makeindex` for the index.
+- **Power BI** for a relational data model, calculated columns, and interactive reporting.
+- **LaTeX** (Legrand Orange Book template) for the written report.
 
 ## Repository Structure
 
 ```
-.
-├── main.tex            # Master document
-├── structure.tex       # Template configuration and packages
-├── bibliography.bib    # References
-├── StyleInd.ist        # Index style
-├── latexmkrc           # latexmk build configuration
-├── Pictures/           # Template and cover images
-├── capitolo_1/         # Ch. 1 - Datasets and methodology
-├── capitolo_2/         # Ch. 2 - Qlik Sense analysis (+ img2/)
-├── capitolo_3/         # Ch. 3 - Tableau analysis    (+ img3/, img3/previsioni/)
-└── capitolo_4/         # Ch. 4 - Power BI analysis    (+ img4/, img4.1/)
+Business-Intelligence-Project/
+├── Report/             # Full LaTeX source of the report
+│   ├── main.tex        # Master document
+│   ├── structure.tex   # Template configuration and packages
+│   ├── bibliography.bib
+│   ├── StyleInd.ist
+│   ├── Pictures/       # Template and cover images
+│   ├── capitolo_1/     # Ch. 1 - Datasets and methodology
+│   ├── capitolo_2/     # Ch. 2 - Qlik Sense analysis
+│   ├── capitolo_3/     # Ch. 3 - Tableau analysis
+│   └── capitolo_4/     # Ch. 4 - Power BI analysis
+├── LICENSE
+└── README.md
 ```
+
+## Data Preparation
+
+Before any dashboard was built, the raw data was cleaned and integrated. The starting point was the **Qlik Data Load Editor script**, which loads the source CSV files, normalizes month and field types, harmonizes country names across datasets, and maps each country to its geographic codes for the choropleth maps. The same preparation logic was then reproduced in **Power Query** for Power BI and through dataset **relationships** in Tableau. This initial data-preparation code is documented in the report (Chapter 2) and is the foundation for the analyses in all three tools.
 
 ## Analyses and Dashboards
 
 ### Qlik Sense
-Data is loaded and shaped directly in the load script: months are mapped to a canonical order, field types are converted, and country names are mapped to geographic polygons for choropleth maps. The dashboards analyze mean temperature change worldwide, with a geospatial world map and country-level drill-down (Italy, USA, China, India) across the years 2000, 2010, and 2019.
+Data is loaded and shaped directly in the load script (month mapping, type conversion, country-to-geography mapping) and explored through the associative engine. The dashboards analyze mean temperature change worldwide, with a geospatial world map and country-level drill-down (Italy, USA, China, India) across the years 2000, 2010, and 2019.
 
 ### Tableau
 The two datasets are connected through Tableau relationships (Year and Country) rather than manual joins, after harmonizing country names. Dashboards built with Treemaps and histograms compare CO2 emissions and renewable electricity production against land area. A dedicated forecasting section uses Tableau's predictive model (custom, additive trend and seasonality) and the Story feature to project CO2 emissions, electricity production by source, and temperature change through 2026.
@@ -62,28 +68,6 @@ Data is cleaned in Power Query and integrated through a relational model that us
 - Renewable electricity shows strong, near-exponential growth, while fossil and nuclear generation stay broadly stable over the period studied.
 - Forecasts point to continued increases in both CO2 emissions and temperature anomalies through 2026, a trajectory consistent with independent real-world measurements.
 
-## Building the Report
-
-Requires a TeX distribution (TeX Live or MiKTeX) with `pdflatex`, `biber`, and `makeindex`.
-
-With `latexmk` (recommended):
-
-```bash
-latexmk -pdf main.tex
-```
-
-Manual build:
-
-```bash
-pdflatex main
-makeindex main.idx -s StyleInd.ist
-biber main
-pdflatex main
-pdflatex main
-```
-
-The compiled `main.pdf` contains the full report with all dashboards and analyses.
-
 ## Authors
 
 - Anass Chebbaki
@@ -92,4 +76,4 @@ The compiled `main.pdf` contains the full report with all dashboards and analyse
 
 ## License
 
-The written report and analyses are released for academic and portfolio purposes. The LaTeX template is the Legrand Orange Book template, distributed under CC BY-NC-SA 3.0.
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details. The report uses the Legrand Orange Book LaTeX template, distributed separately under CC BY-NC-SA 3.0.
